@@ -2,94 +2,71 @@ package br.com.fumec.models;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-
-
-/**
- * The persistent class for the tb_endereco database table.
- * 
- */
-@Entity
-@Table(name="tb_endereco")
-@NamedQuery(name="Endereco.findAll", query="SELECT e FROM Endereco e")
 public class Endereco implements Serializable {
-	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	private static final long serialVersionUID = 247815236006501283L;
+
 	private int id;
-
-	private String complemento;
 
 	private String logradouro;
 
-	//bi-directional many-to-one association to Cidade
-	@ManyToOne
-	@JoinColumn(name="id_cidade")
-	private Cidade tbCidade;
+	private String complemento;
 
-	//bi-directional many-to-one association to Estado
-	@ManyToOne
-	@JoinColumn(name="id_estado")
-	private Estado tbEstado;
+	private Cidade cidade;
 
-	public Endereco() {
-	}
+	private Estado estado;
 
 	public int getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getComplemento() {
-		return this.complemento;
-	}
-
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
-
 	public String getLogradouro() {
-		return this.logradouro;
+		return logradouro;
 	}
 
 	public void setLogradouro(String logradouro) {
 		this.logradouro = logradouro;
 	}
 
-	public Cidade getTbCidade() {
-		return this.tbCidade;
+	public String getComplemento() {
+		return complemento;
 	}
 
-	public void setTbCidade(Cidade tbCidade) {
-		this.tbCidade = tbCidade;
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
 	}
 
-	public Estado getTbEstado() {
-		return this.tbEstado;
+	public Cidade getCidade() {
+		return cidade;
 	}
 
-	public void setTbEstado(Estado tbEstado) {
-		this.tbEstado = tbEstado;
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
 
-	public Endereco(int id, String complemento, String logradouro, Cidade tbCidade, Estado tbEstado) {
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+
+	public Endereco(int id, String logradouro, String complemento, Cidade cidade, Estado estado) {
 		super();
 		this.id = id;
-		this.complemento = complemento;
 		this.logradouro = logradouro;
-		this.tbCidade = tbCidade;
-		this.tbEstado = tbEstado;
+		this.complemento = complemento;
+		this.cidade = cidade;
+		this.estado = estado;
+	}
+
+	public Endereco() {
+		super();
 	}
 
 }

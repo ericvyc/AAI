@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -32,19 +31,17 @@
 		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
 		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 
-  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-  		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-  		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  		<link rel="stylesheet" href="materialize/css/materialize.min.css">
+  		<script src="materialize/js/materialize.min.js"></script>
+  		<!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
           
 		<!-- <link rel="stylesheet" href="<c:url value='/static/css/bootstrap.css' />"> -->
-		<script src="<c:url value='/static/js/angular.js' />"></script>
-		<script src="<c:url value='/static/js/angular.ui.router.js' />"></script>
-		<script src="<c:url value='/static/js/app.js' />"></script>
-		<script src="<c:url value='/static/js/ng-mask-1.0.1.js' />"></script>
-		<script src="<c:url value='/static/js/service/pessoa.service.js' />"></script>
-		<script src="<c:url value='/static/js/controller/pessoa.controller.js' />"></script>
-		<script src="<c:url value='/static/js/service/endereco.service.js' />"></script>
-		<script src="<c:url value='/static/js/controller/endereco.controller.js' />"></script>
+		<script src="js/angular.js"></script>
+		<script src="js/angular.ui.router.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/ng-mask-1.0.1.js"></script>
+		<script src="js/service/endereco.service.js"></script>
+		<script src="js/controller/endereco.controller.js"></script>
 	</head>
 	<body ng-app="meuApp" class="ng-cloak">	
 
