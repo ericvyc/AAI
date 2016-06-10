@@ -3,9 +3,6 @@
 
 	<persistence-unit name="autoinstrucional">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>br.com.fumec.models.Cidade</class>
-		<class>br.com.fumec.models.Endereco</class>
-		<class>br.com.fumec.models.Estado</class>
 		<class>br.com.fumec.models.Pessoa</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
