@@ -10,21 +10,21 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.com.fumec.dao.impl.EstadoDAO;
-import br.com.fumec.models.Estado;
+import br.com.fumec.dao.impl.CidadeDAO;
+import br.com.fumec.models.Cidade;
 
-@Path("estado")
-public class EstadoResource {
+@Path("cidade")
+public class CidadeResource {
 	
-	private EstadoDAO estadoDAO = new EstadoDAO();
+	private CidadeDAO cidadeDAO = new CidadeDAO();
 	
 	@POST
 	@Path("new")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Estado novoEstado(Estado estado) throws Exception {
+	public Cidade novoCidade(Cidade cidade) throws Exception {
 		try {
-			return estadoDAO.createEstado(estado);
+			return cidadeDAO.createCidade(cidade);
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new Exception();
@@ -35,9 +35,9 @@ public class EstadoResource {
 	@Path("update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Estado atualizarEstado(Estado estado) throws Exception {
+	public Cidade atualizarCidade(Cidade cidade) throws Exception {
 		try {
-			return estadoDAO.update(estado);
+			return cidadeDAO.update(cidade);
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new Exception();
@@ -47,9 +47,9 @@ public class EstadoResource {
 	@GET
 	@Path("findall")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Estado> findAll() throws Exception {
+	public List<Cidade> findAll() throws Exception {
 		try {
-			return estadoDAO.findAll();
+			return cidadeDAO.findAll();
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new Exception();
@@ -60,21 +60,20 @@ public class EstadoResource {
 	@Path("deleteall")
 	public void deletarTodos() throws Exception {
 		try {
-			estadoDAO.deletarTodos();
+			cidadeDAO.deletarTodos();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new Exception();
 		}
 	}
 	@GET
-	@Path("delete/{idEstado}")
-	public void deletarTodos(@PathParam(value="idEstado") Integer idEstado) throws Exception {
+	@Path("delete/{idCidade}")
+	public void deletarTodos(@PathParam(value="idCidade") Integer idCidade) throws Exception {
 		try {
-			estadoDAO.delete(idEstado);
+			cidadeDAO.delete(idCidade);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new Exception();
 		}
 	}
-
 }

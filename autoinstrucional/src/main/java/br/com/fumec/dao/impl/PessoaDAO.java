@@ -6,6 +6,7 @@ import javax.persistence.Query;
 
 import br.com.fumec.dao.IPessoaDAO;
 import br.com.fumec.models.Pessoa;
+import manager.Manager;
 
 public class PessoaDAO extends BaseDAO implements IPessoaDAO {
 
@@ -14,16 +15,11 @@ public class PessoaDAO extends BaseDAO implements IPessoaDAO {
 	@Override
 	public Pessoa create(Pessoa pessoa) {
 		
-		StringBuilder sb = new StringBuilder();
-		sb.append(" INSERT INTO dawfumec.tb_pessoa (nome, idade) "
-				+ "VALUES (" + pessoa.getNome() + ", " + pessoa.getIdade() + ") ");
+		abreTransacao();
+		Pessoa nova = Manager.getEntityManager().merge(pessoa);
+		commit();
+		return nova;
 		
-		Query query = getEntityManager().createNativeQuery(sb.toString(), Pessoa.class);		
-		query.executeUpdate();
-		
-		return null;
-		
-//		return getEntityManager().merge(pessoa);		
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -31,21 +27,20 @@ public class PessoaDAO extends BaseDAO implements IPessoaDAO {
 	public List<Pessoa> findAll() {
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append(" SELECT * FROM dawfumec.tb_pessoa");
+		sb.append(" SELECT * FROM dawfumec.tb_pessoa order by id desc limit 30");
 		
-		Query query = getEntityManager().createNativeQuery(sb.toString(), Pessoa.class);
+		Query query = Manager.getEntityManager().createNativeQuery(sb.toString(), Pessoa.class);
 		
 		return query.getResultList();
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public Pessoa findOne(Integer id) {
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append(" SELECT * FROM dawfumec.tb_pessoa WHERE id =:id ");
 		
-		Query query = getEntityManager().createNativeQuery(sb.toString(), Pessoa.class);
+		Query query = Manager.getEntityManager().createNativeQuery(sb.toString(), Pessoa.class);
 		query.setParameter("id", id);
 		
 		return (Pessoa) query.getSingleResult();
@@ -55,28 +50,25 @@ public class PessoaDAO extends BaseDAO implements IPessoaDAO {
 	@Override
 	public Pessoa update(Pessoa pessoa) {
 		
-		StringBuilder sb = new StringBuilder();
-		sb.append(" UPDATE dawfumec.tb_pessoa SET nome = " + pessoa.getNome() +
-				", idade = "+ pessoa.getIdade() + " WHERE id =:id ) ");
-		
-		Query query = getEntityManager().createNativeQuery(sb.toString(), Pessoa.class);
-		query.setParameter("id", pessoa.getId());
-		query.executeUpdate();
-		
-		return null;
-		
-//		return getEntityManager().merge(pessoa);
+		abreTransacao();
+		Pessoa nova = Manager.getEntityManager().merge(pessoa);
+		commit();
+		return nova;
 	}
 
 	@Override
 	public void delete(Integer id) {
+		abreTransacao();
+		
 		StringBuilder sb = new StringBuilder();
 		sb.append(" DELETE FROM dawfumec.tb_pessoa WHERE id =:id");
 		
-		Query query = getEntityManager().createNativeQuery(sb.toString(), Pessoa.class);
+		Query query = Manager.getEntityManager().createNativeQuery(sb.toString(), Pessoa.class);
 		query.setParameter("id", id);
 		
 		query.executeUpdate();
+		
+		commit();
 	}
 
 	@Override
@@ -84,7 +76,7 @@ public class PessoaDAO extends BaseDAO implements IPessoaDAO {
 		StringBuilder sb = new StringBuilder();
 		sb.append(" DELETE FROM dawfumec.tb_pessoa WHERE 1=1");
 		
-		Query query = getEntityManager().createNativeQuery(sb.toString(), Pessoa.class);		
+		Query query = Manager.getEntityManager().createNativeQuery(sb.toString(), Pessoa.class);		
 		query.executeUpdate();
 	}
 

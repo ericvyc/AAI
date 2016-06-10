@@ -6,6 +6,7 @@ import javax.persistence.Query;
 
 import br.com.fumec.dao.IEstadoDAO;
 import br.com.fumec.models.Estado;
+import manager.Manager;
 
 public class EstadoDAO extends BaseDAO implements IEstadoDAO {
 
@@ -13,7 +14,10 @@ public class EstadoDAO extends BaseDAO implements IEstadoDAO {
 	
 	@Override
 	public Estado createEstado(Estado estado) {
-		return getEntityManager().merge(estado);
+		abreTransacao();
+		Estado novo = Manager.getEntityManager().merge(estado);
+		commit();
+		return novo;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -23,7 +27,7 @@ public class EstadoDAO extends BaseDAO implements IEstadoDAO {
 		StringBuilder sb = new StringBuilder();
 		sb.append(" SELECT * FROM dawfumec.tb_estado");
 		
-		Query query = getEntityManager().createNativeQuery(sb.toString(), Estado.class);
+		Query query = Manager.getEntityManager().createNativeQuery(sb.toString(), Estado.class);
 		
 		return query.getResultList();
 	}
@@ -31,18 +35,23 @@ public class EstadoDAO extends BaseDAO implements IEstadoDAO {
 	//Apagar este método e refatorar no angular para usar o save no update e delete.
 	@Override
 	public Estado update(Estado estado) {
-		return getEntityManager().merge(estado);
+		abreTransacao();
+		Estado novo = Manager.getEntityManager().merge(estado);
+		commit();
+		return novo;
 	}
 
 	@Override
 	public void delete(Integer id) {
+		abreTransacao();
 		StringBuilder sb = new StringBuilder();
 		sb.append(" DELETE FROM dawfumec.tb_estado WHERE id =:id");
 		
-		Query query = getEntityManager().createNativeQuery(sb.toString(), Estado.class);
+		Query query = Manager.getEntityManager().createNativeQuery(sb.toString(), Estado.class);
 		query.setParameter("id", id);
 		
 		query.executeUpdate();
+		commit();
 	}
 
 	@Override
@@ -50,7 +59,7 @@ public class EstadoDAO extends BaseDAO implements IEstadoDAO {
 		StringBuilder sb = new StringBuilder();
 		sb.append(" DELETE FROM dawfumec.tb_estado WHERE 1=1");
 		
-		Query query = getEntityManager().createNativeQuery(sb.toString(), Estado.class);
+		Query query = Manager.getEntityManager().createNativeQuery(sb.toString(), Estado.class);
 		
 		query.executeUpdate();
 	}
