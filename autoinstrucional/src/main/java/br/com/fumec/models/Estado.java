@@ -2,10 +2,16 @@ package br.com.fumec.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Estado implements Serializable {
 
+	
 	private static final long serialVersionUID = -2638331931178243565L;
 
+	@Id
 	private int id;
 
 	private String nome;

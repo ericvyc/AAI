@@ -11,7 +11,6 @@ import javax.ws.rs.core.Response;
 
 import br.com.fumec.dao.IEstadoDAO;
 import br.com.fumec.models.Estado;
-import br.com.fumec.models.Pessoa;
 
 public class EstadoDAO implements IEstadoDAO {
 
@@ -32,9 +31,9 @@ public class EstadoDAO implements IEstadoDAO {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("autoinstrucional");
 		EntityManager em = emf.createEntityManager();
 		StringBuilder sb = new StringBuilder();
-		sb.append(" SELECT * FROM dawfumec.tb_pessoa limit 5 ");
+		sb.append(" SELECT * FROM dawfumec.tb_estado");
 		
-		Query query = em.createNativeQuery(sb.toString(), Pessoa.class);
+		Query query = em.createNativeQuery(sb.toString(), Estado.class);
 		
 		return query.getResultList();
 	}
