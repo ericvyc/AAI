@@ -1,41 +1,58 @@
 package br.com.fumec.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.ws.rs.core.Response;
 
 import br.com.fumec.dao.IEstadoDAO;
 import br.com.fumec.models.Estado;
 
-public class EstadoDAO implements IEstadoDAO {
+public class EstadoDAO extends BaseDAO implements IEstadoDAO {
 
 	private static final long serialVersionUID = 3459713197334261189L;
 	
-	private List<Estado> estados = new ArrayList<Estado>();
-
 	@Override
-	public Response createEstado(Estado estado) {
-		estados.add(estado);
-		return Response.ok().build();
+	public Estado createEstado(Estado estado) {
+		return getEntityManager().merge(estado);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Estado> findAll() {
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("autoinstrucional");
-		EntityManager em = emf.createEntityManager();
 		StringBuilder sb = new StringBuilder();
 		sb.append(" SELECT * FROM dawfumec.tb_estado");
 		
-		Query query = em.createNativeQuery(sb.toString(), Estado.class);
+		Query query = getEntityManager().createNativeQuery(sb.toString(), Estado.class);
 		
 		return query.getResultList();
+	}
+
+	//Apagar este método e refatorar no angular para usar o save no update e delete.
+	@Override
+	public Estado update(Estado estado) {
+		return getEntityManager().merge(estado);
+	}
+
+	@Override
+	public void delete(Integer id) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(" DELETE FROM dawfumec.tb_estado WHERE id =:id");
+		
+		Query query = getEntityManager().createNativeQuery(sb.toString(), Estado.class);
+		query.setParameter("id", id);
+		
+		query.executeUpdate();
+	}
+
+	@Override
+	public void deletarTodos() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(" DELETE FROM dawfumec.tb_estado WHERE 1=1");
+		
+		Query query = getEntityManager().createNativeQuery(sb.toString(), Estado.class);
+		
+		query.executeUpdate();
 	}
 	
 }

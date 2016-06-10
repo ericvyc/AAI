@@ -2,13 +2,14 @@ package br.com.fumec.resources;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import br.com.fumec.dao.impl.EstadoDAO;
 import br.com.fumec.models.Estado;
@@ -22,9 +23,24 @@ public class EstadoResource {
 	@Path("new")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response novoEstado(Estado estado) throws Exception {
+	@Transactional
+	public Estado novoEstado(Estado estado) throws Exception {
 		try {
 			return estadoDAO.createEstado(estado);
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new Exception();
+		}
+	}
+	
+	@POST
+	@Path("update")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Transactional
+	public Estado atualizarEstado(Estado estado) throws Exception {
+		try {
+			return estadoDAO.update(estado);
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new Exception();
@@ -34,8 +50,37 @@ public class EstadoResource {
 	@GET
 	@Path("findall")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Estado> findAll() {
-		return estadoDAO.findAll();
+	@Transactional
+	public List<Estado> findAll() throws Exception {
+		try {
+			return estadoDAO.findAll();
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new Exception();
+		}
+	}
+	
+	@GET
+	@Path("deleteall")
+	@Transactional
+	public void deletarTodos() throws Exception {
+		try {
+			estadoDAO.deletarTodos();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception();
+		}
+	}
+	@GET
+	@Path("delete/{idEstado}")
+	@Transactional
+	public void deletarTodos(@PathParam(value="idEstado") Integer idEstado) throws Exception {
+		try {
+			estadoDAO.delete(idEstado);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception();
+		}
 	}
 
 }

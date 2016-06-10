@@ -5,11 +5,6 @@
         
         <div class="card">
         	<div class="card-content white-text">
-        	
-        	<div ng-repeat="e in ctrl.estados">
-        		{{ e }}
-        	</div>
-        	
         		<span class="card-title" style="color: #000;">Cadastro de Estado</span>
           		
           		<form method="post" ng-submit="ctrl.submit()" name="meuForm" class="form-horizontal">				

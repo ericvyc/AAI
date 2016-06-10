@@ -19,7 +19,7 @@ App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, 
           };
           
           self.criarEstado = function(estado){
-        	  estado.id = 1;
+        	  estado.id=null;
               EstadoService.criarEstado(estado)
                       .then(
                       self.findAll, 
@@ -29,8 +29,8 @@ App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, 
                   );
           };
           
-          self.updateEstado = function(estado, id){
-              EstadoService.updateEstado(estado, id)
+          self.updateEstado = function(estado){
+              EstadoService.updateEstado(estado)
                       .then(
                               self.findAll, 
                               function(errResponse){
@@ -59,11 +59,11 @@ App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, 
           
           self.submit = function() {
               if(self.estado.id === null  || self.estado.id === undefined || self.estado.id === ''){
-                  console.log('Salvando novo usuário', self.estado);    
+                  console.log('Salvando novo estado', self.estado);    
                   self.criarEstado(self.estado);
               }else{
-                  self.updateEstado(self.estado, self.estado.id);
-                  console.log('estado atualizada com o id ', self.estado.id);
+                  self.updateEstado(self.estado);
+                  console.log('Estado atualizada com o id ', self.estado.id);
               }
               self.reset();
               self.findAll();
