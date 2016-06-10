@@ -8,5 +8,14 @@ import br.com.fumec.models.Pessoa;
 public interface IPessoaDAO extends Serializable {
 	
 	public List<Pessoa> findAll();
+	
+	public Pessoa findOne(Integer id);
 		
+	public Pessoa create(Pessoa pessoa);
+
+	public Pessoa update(Pessoa pessoa);
+	
+	public void delete(Integer id);
+	
+	public void deleteAll();
 }

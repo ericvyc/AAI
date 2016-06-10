@@ -6,10 +6,8 @@ App.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
     
     $urlRouterProvider.otherwise('/');
     
-    	console.log($stateProvider);
-    
     $stateProvider
-            
+
         .state('estado', {
             url: '/estado',
             templateUrl: 'crudEstado.jsp'

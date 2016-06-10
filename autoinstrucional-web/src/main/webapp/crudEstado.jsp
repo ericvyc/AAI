@@ -11,12 +11,12 @@
 					<input type="hidden" ng-model="ctrl.estado.id" />						
 					<div class="row">
 					
-						<div class="form-group  col s12">
+						<div class="form-group  col s10">
 							<label for="nome">Nome:</label> 
 							<input type="text" class="form-control" id="nome" ng-model="ctrl.estado.nome" ng-required="required" style="color: #000;">
 						</div>
 						
-						<div class="form-group  col s12">
+						<div class="form-group  col s2">
 							<label for="sigla">Sigla:</label> 
 							<input type="text" class="form-control" id="sigla" ng-model="ctrl.estado.sigla" ng-required="required" style="color: #000;">
 						</div>

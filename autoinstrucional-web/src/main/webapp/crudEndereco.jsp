@@ -32,9 +32,10 @@
 					</div>
 
 					<div id="actions" class="row">
-						<div class="col s6 offset-s8">
-							<button type="submit" class="waves-effect waves-light btn green darken-3">Salvar</button>
-							<button type="reset" class="waves-effect waves-light btn red darken-2">Cancelar</button>
+						<div class="col -s12">
+							<input type="submit"  value="{{!ctrl.endereco.id ? 'Adicionar' : 'Atualizar'}}" class="waves-effect waves-light btn" ng-disabled="meuForm.$invalid">
+			                <button type="button" ng-click="ctrl.reset()" class="waves-effect waves-light btn yellow darken-3" ng-disabled="myForm.$pristine">Limpar Formulário</button>
+			                <button type="button" ng-click="ctrl.deletarTodos()" class="waves-effect waves-light btn red darken-2">Deletar Todos Registros</button>
 						</div>
 					</div>
 				</form>
