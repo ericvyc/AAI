@@ -13,15 +13,15 @@
 						<label for="cep">CEP</label> 
 						<input type="text"	class="form-control" id="cep" ng-model="ctrl.endereco.cep" ng-blur="ctrl.getEndereco(ctrl.endereco.cep)" style="color: #000;">
 					</div>	
-
-					<div class="form-group col s2">
-						<label for="numero">Número</label> 
-						<input type="text" class="form-control" id="numero" ng-model="ctrl.endereco.numero" style="color: #000;">
-					</div>
 					
 					<div class="form-group col s4">
 						<label for="logradouro">Endereço</label> 
 						<input type="text"	class="form-control" id="logradouro" ng-model="ctrl.endereco.logradouro" style="color: #000;">
+					</div>
+
+					<div class="form-group col s2">
+						<label for="numero">Número</label> 
+						<input type="text" class="form-control" id="numero" ng-model="ctrl.endereco.numero" style="color: #000;">
 					</div>
 					
 					<div class="form-group col s4">
