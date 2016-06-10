@@ -3,6 +3,7 @@ package br.com.fumec.resources;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.transaction.Transactional.TxType;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -23,7 +24,7 @@ public class EstadoResource {
 	@Path("new")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@Transactional
+	@Transactional(value=TxType.REQUIRED)
 	public Estado novoEstado(Estado estado) throws Exception {
 		try {
 			return estadoDAO.createEstado(estado);
@@ -37,7 +38,7 @@ public class EstadoResource {
 	@Path("update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@Transactional
+	@Transactional(value=TxType.REQUIRED)
 	public Estado atualizarEstado(Estado estado) throws Exception {
 		try {
 			return estadoDAO.update(estado);
@@ -50,7 +51,7 @@ public class EstadoResource {
 	@GET
 	@Path("findall")
 	@Produces(MediaType.APPLICATION_JSON)
-	@Transactional
+	@Transactional(value=TxType.REQUIRED)
 	public List<Estado> findAll() throws Exception {
 		try {
 			return estadoDAO.findAll();
@@ -62,7 +63,7 @@ public class EstadoResource {
 	
 	@GET
 	@Path("deleteall")
-	@Transactional
+	@Transactional(value=TxType.REQUIRED)
 	public void deletarTodos() throws Exception {
 		try {
 			estadoDAO.deletarTodos();
@@ -73,7 +74,7 @@ public class EstadoResource {
 	}
 	@GET
 	@Path("delete/{idEstado}")
-	@Transactional
+	@Transactional(value=TxType.REQUIRED)
 	public void deletarTodos(@PathParam(value="idEstado") Integer idEstado) throws Exception {
 		try {
 			estadoDAO.delete(idEstado);
