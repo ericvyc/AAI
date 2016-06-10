@@ -9,7 +9,7 @@ App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, 
         	  EstadoService.findAll()
                   .then(
                                function(d) {
-                            	   debugger;
+                            	   
                                     self.estados = d;
                                },
                                 function(errResponse){

@@ -6,7 +6,7 @@ App.controller('EnderecoController', ['$scope', 'EnderecoService', function($sco
           self.enderecos = [];
           
           self.salvar = function () {
-        	  debugger;
+        	  
         	  self.enderecos.push(self.endereco);
           }
                

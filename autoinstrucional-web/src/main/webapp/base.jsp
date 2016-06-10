@@ -28,14 +28,11 @@
 			background-color: yellow;
 		}
 		</style>
-		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
-		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 
   		<link rel="stylesheet" href="materialize/css/materialize.min.css">
   		<script src="materialize/js/materialize.min.js"></script>
-  		<!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
           
-		<!-- <link rel="stylesheet" href="<c:url value='/static/css/bootstrap.css' />"> -->
 		<script src="js/angular.js"></script>
 		<script src="js/angular.ui.router.js"></script>
 		<script src="js/app.js"></script>

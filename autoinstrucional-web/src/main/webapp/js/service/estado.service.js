@@ -17,7 +17,7 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
             },
     
             criarEstado: function(estado){
-            	debugger;
+            	
             		return $http.post('http://localhost:8080/autoinstrucional/estado/new', estado)
                     		.then(
                     				function(response){
@@ -31,7 +31,7 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
     },
     
     updateEstado: function(estado, id){
-    	debugger;
+    	
             return $http.put('http://localhost:8080/desafio/estado/'+id, estado)
                     .then(
                             function(response){
@@ -57,7 +57,7 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
                     );
     },
     deletarTodos: function() {
-    	debugger;
+    	
     	return $http.delete('http://localhost:8080/autoinstrucional/estado/')
     			.then(
     					function(response){
