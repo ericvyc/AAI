@@ -7,10 +7,14 @@ import br.com.fumec.models.Endereco;
 
 public interface IEnderecoDAO extends Serializable {
 	
-	public Endereco getEnderecoById(Integer idEndereco);
-	
-	public void createEndereco(Endereco endereco);
+	public Endereco createEndereco(Endereco endereco);
 	
 	public List<Endereco> findAll();
+	
+	public Endereco update(Endereco endereco);
+	
+	public void delete(Integer id);
+	
+	public void deletarTodos();
 
 }

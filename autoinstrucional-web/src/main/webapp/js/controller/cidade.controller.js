@@ -4,7 +4,21 @@ App.controller('CidadeController', ['$scope', 'CidadeService','EstadoService', f
     var self = this;
     self.cidade={id:null,nome:'',estado:''};
     self.cidades=[];
-    self.estados = estadoService.findAll();
+    self.estado = {id:null,nome:'',sigla:''};
+    self.estados = [];
+    
+    self.findAllEstados = function(){
+    	estadoService.findAll()
+              .then(
+                   function(d) {
+                	   
+                        self.estados = d;
+                   },
+                    function(errResponse){
+                        console.error('Erro ao buscar estados');
+                    }
+               );
+      };
          
     self.findAll = function(){
   	  cidadeService.findAll()
@@ -94,5 +108,7 @@ App.controller('CidadeController', ['$scope', 'CidadeService','EstadoService', f
     };
       
     self.findAll();
+    
+    self.findAllEstados();
 
 }]);

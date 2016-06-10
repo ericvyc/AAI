@@ -29,9 +29,15 @@
 		}
 		</style>
 
+		<script src="http://code.jquery.com/jquery-2.1.2.min.js"></script>
   		<link rel="stylesheet" href="materialize/css/materialize.min.css">
   		<script src="materialize/js/materialize.min.js"></script>
-  		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script>
+			$(document).ready(function() {
+				$('select').material_select();
+			});
+		</script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
           
 		<script src="js/angular.js"></script>
 		<script src="js/angular.ui.router.js"></script>

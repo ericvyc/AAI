@@ -11,16 +11,16 @@
 					<input type="hidden" ng-model="ctrl.cidade.id" />						
 					<div class="row">
 					
-						<div class="form-group  col s10">
+						<div class="form-group  col s8">
 							<label for="nome">Nome:</label> 
 							<input type="text" class="form-control" id="nome" ng-model="ctrl.cidade.nome" ng-required="required" style="color: #000;">
 						</div>
 						
-						<div class="form-group  col s2">
+						<div class="form-group  col s4">
 							<label for="sigla">Estado:</label> 
 							<!-- <input type="text" class="form-control" id="sigla" ng-model="ctrl.cidade.sigla" ng-required="required" style="color: #000;"> -->
-							<select>
-								<option ng-repeate="e in ctrl.estados"></option>
+							<select class="form-control" ng-model="ctrl.estado">
+								<option ng-repeat="e in ctrl.estados">{{e.sigla}}</option>
 							</select>
 						</div>
 					
@@ -56,10 +56,10 @@
 					<td><span style="color : #000;">{{ c.nome }}</span></td>
                     <td><span style="color : #000;">{{ c.estado.sigla }}</span></td>
                     <td>
-                      <button type="button" ng-click="ctrl.edit(e.id)" class="waves-effect waves-light btn blue darken-3">
+                      <button type="button" ng-click="ctrl.edit(c.id)" class="waves-effect waves-light btn blue darken-3">
                   			<i class="material-icons">mode_edit</i>
                       </button>  
-                      <button type="button" ng-click="ctrl.remove(e.id)" class="waves-effect waves-light btn red darken-2">
+                      <button type="button" ng-click="ctrl.remove(c.id)" class="waves-effect waves-light btn red darken-2">
                      		x
                       </button>
                     </td>

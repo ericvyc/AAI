@@ -1,5 +1,7 @@
 package br.com.fumec.resources;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -15,21 +17,66 @@ import br.com.fumec.models.Endereco;
 public class EnderecoResource {
 	
 	private EnderecoDAO enderecoDAO = new EnderecoDAO();
-
-	@GET
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("getById/{idEndereco}")
-	public Endereco getEnderecoById(@PathParam(value = "idEndereco") Integer idEndereco) {
-		return enderecoDAO.getEnderecoById(idEndereco);
-	}
+	
 
 	@POST
+	@Path("new")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("new")
-	public void createEndereco(Endereco endereco) {
-		enderecoDAO.createEndereco(endereco);
+	public Endereco novoEndereco(Endereco endereco) throws Exception {
+		try {
+			return enderecoDAO.createEndereco(endereco);
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new Exception();
+		}
 	}
 	
+	@POST
+	@Path("update")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Endereco atualizarEndereco(Endereco endereco) throws Exception {
+		try {
+			return enderecoDAO.update(endereco);
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new Exception();
+		}
+	}
+	
+	@GET
+	@Path("findall")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Endereco> findAll() throws Exception {
+		try {
+			return enderecoDAO.findAll();
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new Exception();
+		}
+	}
+	
+	@GET
+	@Path("deleteall")
+	public void deletarTodos() throws Exception {
+		try {
+			enderecoDAO.deletarTodos();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception();
+		}
+	}
+	@GET
+	@Path("delete/{idEndereco}")
+	public void deletarTodos(@PathParam(value="idEndereco") Integer idEndereco) throws Exception {
+		try {
+			enderecoDAO.delete(idEndereco);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception();
+		}
+	}
+
+
 }
