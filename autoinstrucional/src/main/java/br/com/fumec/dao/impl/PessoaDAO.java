@@ -16,7 +16,7 @@ public class PessoaDAO extends BaseDAO implements IPessoaDAO {
 	public List<Pessoa> findAll() {
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append(" SELECT * FROM dawfumec.tb_pessoa LIMIT 5");
+		sb.append(" SELECT * FROM dawfumec.tb_pessoa");
 		
 		Query query = getEntityManager().createNativeQuery(sb.toString(), Pessoa.class);
 		
