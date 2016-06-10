@@ -24,7 +24,7 @@
 						<div class="col s12">
 							<input type="submit"  value="{{!ctrl.pessoa.id ? 'Adicionar' : 'Atualizar'}}" class="waves-effect waves-light btn" ng-disabled="meuForm.$invalid">
 			                <button type="button" ng-click="ctrl.reset()" class="waves-effect waves-light btn yellow darken-3" ng-disabled="myForm.$pristine">Limpar Formulário</button>
-			                <button type="button" ng-click="ctrl.deletarTodos()" class="waves-effect waves-light btn red darken-2">Deletar Todos Registros</button>
+			                <button type="button" ng-click="ctrl.deleteAll()" class="waves-effect waves-light btn red darken-2">Deletar Todos Registros</button>
 						</div>
 					</div>
 				</form>
