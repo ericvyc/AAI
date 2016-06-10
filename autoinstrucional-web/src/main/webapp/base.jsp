@@ -40,6 +40,8 @@
 		<script src="js/angular.ui.router.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/ng-mask-1.0.1.js"></script>
+		<script src="js/service/estado.service.js"></script>
+		<script src="js/controller/estado.controller.js"></script>
 		<script src="js/service/endereco.service.js"></script>
 		<script src="js/controller/endereco.controller.js"></script>
 	</head>
@@ -52,6 +54,7 @@
 		        <ul class="right hide-on-med-and-down">
 		          	<li><a ui-sref="pessoa">Pessoa </a></li>
 		        	<li><a ui-sref="endereco">Endereço</a></li>
+		        	<li><a ui-sref="estado">Estado</a></li>
 		        </ul>
 		      </div>
 		    </nav>

@@ -10,12 +10,12 @@ App.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
         
         .state('estado', {
             url: '/estado',
-            templateUrl: 'static/html/crudEstado.jsp'
+            templateUrl: 'crudEstado.jsp'
         })
         
         .state('endereco', {
         	url: '/endereco',
-            templateUrl: 'static/html/crudEndereco.jsp'      
+            templateUrl: 'crudEndereco.jsp'      
         });
         
 }]);

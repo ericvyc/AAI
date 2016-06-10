@@ -2,76 +2,79 @@
  
 App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, EstadoService) {
           var self = this;
-          self.estado={id:'',nome:'',dataNascimento:'',sexo:'',cpf:''};
+          self.estado={id:'',nome:'',sigla:''};
           self.estados=[];
                
-          self.fetchAllUsers = function(){
-        	  EstadoService.fetchAllUsers()
+          self.findAll = function(){
+        	  EstadoService.findAll()
                   .then(
                                function(d) {
-                                    self.pessoas = d;
+                            	   debugger;
+                                    self.estados = d;
                                },
                                 function(errResponse){
-                                    console.error('Erro ao buscar pessoas');
+                                    console.error('Erro ao buscar estados');
                                 }
                        );
           };
           
-          self.criarPessoa = function(pessoa){
-              EstadoService.criarPessoa(pessoa)
+          self.criarEstado = function(estado){
+        	  estado.id = 1;
+              EstadoService.criarEstado(estado)
                       .then(
-                      self.fetchAllUsers, 
+                      self.findAll, 
                               function(errResponse){
-                                   console.error('Erro ao criar pessoa.');
+                                   console.error('Erro ao criar estado.');
                               } 
                   );
           };
           
-          self.updatePessoa = function(pessoa, id){
-              EstadoService.updatePessoa(pessoa, id)
+          self.updateEstado = function(estado, id){
+              EstadoService.updateEstado(estado, id)
                       .then(
-                              self.fetchAllUsers, 
+                              self.findAll, 
                               function(errResponse){
-                                   console.error('Erro ao atualizar pessoa.');
+                                   console.error('Erro ao atualizar estado.');
                               } 
                   );
           };
           
-          self.deletePessoa = function(id){
-              EstadoService.deletePessoa(id)
+          self.deleteEstado = function(id){
+              EstadoService.deleteEstado(id)
                       .then(
-                              self.fetchAllUsers, 
+                              self.findAll, 
                               function(errResponse){
-                                   console.error('Erro ao deletar pessoa.');
+                                   console.error('Erro ao deletar estado.');
                               } 
                   );
           };
           
 
 		 self.deletarTodos = function() {
-				EstadoService.deletarTodos().then(self.fetchAllUsers,
+				EstadoService.deletarTodos().then(self.findAll,
 						function(errResponse) {
-							console.error('Erro ao deletar todas as pessoas.');
+							console.error('Erro ao deletar todas as estados.');
 						});
 			};
           
           self.submit = function() {
-              if(self.pessoa.id === null  || self.pessoa.id === undefined || self.pessoa.id === ''){
-                  console.log('Salvando novo usuário', self.pessoa);    
-                  self.criarPessoa(self.pessoa);
+              if(self.estado.id === null  || self.estado.id === undefined || self.estado.id === ''){
+                  console.log('Salvando novo usuário', self.estado);    
+                  self.criarEstado(self.estado);
               }else{
-                  self.updatePessoa(self.pessoa, self.pessoa.id);
-                  console.log('Pessoa atualizada com o id ', self.pessoa.id);
+                  self.updateEstado(self.estado, self.estado.id);
+                  console.log('estado atualizada com o id ', self.estado.id);
               }
               self.reset();
+              self.findAll();
 
           };
           
           self.edit = function(id){
               console.log('id para ser editado', id);
-              for(var i = 0; i < self.pessoas.length; i++){
-                  if(self.pessoas[i].id === id) {
-                     self.pessoa = angular.copy(self.pessoas[i]);
+              for(var i = 0; i < self.estados.length; i++){
+                  if(self.estados[i].id === id) {
+                     self.estado = angular.copy(self.estados[i]);
                      break;
                   }
               }
@@ -79,17 +82,17 @@ App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, 
           
           self.remove = function(id){
               console.log('id para ser deletado', id);
-              if(self.pessoa.id === id) {
+              if(self.estado.id === id) {
                  self.reset();
               }
-              self.deletePessoa(id);
+              self.deleteEstado(id);
           };
           
           self.reset = function(){
-              self.pessoa={id:'',nome:'',dataNascimento:'',sexo:'',cpf:''};
+              self.estado={id:'',nome:'',sigla:''};
               $scope.meuForm.$setPristine();
           };
             
-          self.fetchAllUsers();
+          self.findAll();
  
       }]);

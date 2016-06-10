@@ -3,9 +3,8 @@
 App.factory('EstadoService', ['$http', '$q', function($http, $q){
  
     return {
-            fetchAllUsers: function() {
-            	debugger;
-                    return $http.get('http://localhost:8080/desafio/estados/')
+            findAll: function() {
+                    return $http.get('http://localhost:8080/autoinstrucional/estado/findall')
                             .then(
                                     function(response){
                                         return response.data;
@@ -17,9 +16,9 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
                             );
             },
     
-            criarestado: function(estado){
+            criarEstado: function(estado){
             	debugger;
-            		return $http.post('http://localhost:8080/desafio/estado/', estado)
+            		return $http.post('http://localhost:8080/autoinstrucional/estado/new', estado)
                     		.then(
                     				function(response){
                     					return response.data;
@@ -31,7 +30,7 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
                     		);
     },
     
-    updateestado: function(estado, id){
+    updateEstado: function(estado, id){
     	debugger;
             return $http.put('http://localhost:8080/desafio/estado/'+id, estado)
                     .then(
@@ -45,9 +44,8 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
                     );
     },
      
-    deleteestado: function(id){
-    	debugger;
-            return $http.delete('http://localhost:8080/desafio/estado/'+id)
+    deleteEstado: function(id){
+            return $http.delete('http://localhost:8080/autoinstrucional/estado/'+id)
                     .then(
                             function(response){
                                 return response.data;
@@ -60,7 +58,7 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
     },
     deletarTodos: function() {
     	debugger;
-    	return $http.delete('http://localhost:8080/desafio/estado/')
+    	return $http.delete('http://localhost:8080/autoinstrucional/estado/')
     			.then(
     					function(response){
                             return response.data;

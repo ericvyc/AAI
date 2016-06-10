@@ -22,6 +22,7 @@ public class EstadoDAO implements IEstadoDAO {
 
 	@Override
 	public List<Estado> findAll() {
+		estados.add(new Estado(1,"Minas Gerais", "MG"));
 		return estados;
 	}
 	
