@@ -75,6 +75,18 @@ public class PessoaResource {
 	}
 
 	@GET
+	@Path("delete/{id}")
+	@Transactional(value=TxType.REQUIRED)
+	public void deletar(@PathParam(value="id") Integer id) throws Exception {
+		try {
+			pessoaDAO.delete(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception();
+		}
+	}
+	
+	@GET
 	@Path("deleteAll")
 	@Transactional(value=TxType.REQUIRED)
 	public void deletarTodos() throws Exception {
@@ -84,18 +96,6 @@ public class PessoaResource {
 			e.printStackTrace();
 			throw new Exception();
 		}
-	}
-	
-	@GET
-	@Path("delete/{id}")
-	@Transactional(value=TxType.REQUIRED)
-	public void deletarTodos(@PathParam(value="id") Integer id) throws Exception {
-		try {
-			pessoaDAO.delete(id);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception();
-		}
-	}
+	}	
 
 }

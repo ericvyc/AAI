@@ -13,7 +13,17 @@ public class PessoaDAO extends BaseDAO implements IPessoaDAO {
 	
 	@Override
 	public Pessoa create(Pessoa pessoa) {
-		return getEntityManager().merge(pessoa);		
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(" INSERT INTO dawfumec.tb_pessoa (nome, idade) "
+				+ "VALUES (" + pessoa.getNome() + ", " + pessoa.getIdade() + ") ");
+		
+		Query query = getEntityManager().createNativeQuery(sb.toString(), Pessoa.class);		
+		query.executeUpdate();
+		
+		return null;
+		
+//		return getEntityManager().merge(pessoa);		
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -44,7 +54,18 @@ public class PessoaDAO extends BaseDAO implements IPessoaDAO {
 	//Apagar este método e refatorar no angular para usar o save no update e delete.
 	@Override
 	public Pessoa update(Pessoa pessoa) {
-		return getEntityManager().merge(pessoa);
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(" UPDATE dawfumec.tb_pessoa SET nome = " + pessoa.getNome() +
+				", idade = "+ pessoa.getIdade() + " WHERE id =:id ) ");
+		
+		Query query = getEntityManager().createNativeQuery(sb.toString(), Pessoa.class);
+		query.setParameter("id", pessoa.getId());
+		query.executeUpdate();
+		
+		return null;
+		
+//		return getEntityManager().merge(pessoa);
 	}
 
 	@Override
