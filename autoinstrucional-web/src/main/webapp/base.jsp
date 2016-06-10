@@ -41,6 +41,8 @@
 		<script src="js/controller/estado.controller.js"></script>
 		<script src="js/service/endereco.service.js"></script>
 		<script src="js/controller/endereco.controller.js"></script>
+		<script src="js/service/pessoa.service.js"></script>
+		<script src="js/controller/pessoa.controller.js"></script>
 	</head>
 	<body ng-app="meuApp" class="ng-cloak">	
 
