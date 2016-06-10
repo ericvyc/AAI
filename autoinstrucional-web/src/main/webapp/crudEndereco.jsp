@@ -9,25 +9,30 @@
           		<form method="post" ng-submit="ctrl.submit()" name="meuForm" class="form-horizontal">			
 					
 					<div class="row">
-						<div class="form-group col s2">
-						<label for="cep">CEP</label> 
-						<input type="text"	class="form-control" id="cep" ng-model="ctrl.endereco.cep" ng-blur="ctrl.getEndereco(ctrl.endereco.cep)" style="color: #000;">
-					</div>	
 					
-					<div class="form-group col s4">
-						<label for="logradouro">Endereço</label> 
+					<div class="form-group col s6">
+						<label for="logradouro">Logradouro</label> 
 						<input type="text"	class="form-control" id="logradouro" ng-model="ctrl.endereco.logradouro" style="color: #000;">
 					</div>
 
-					<div class="form-group col s2">
-						<label for="numero">Número</label> 
-						<input type="text" class="form-control" id="numero" ng-model="ctrl.endereco.numero" style="color: #000;">
-					</div>
-					
-					<div class="form-group col s4">
+					<div class="form-group col s6">
 						<label for="complemento">Complemento</label> 
 						<input type="text"	class="form-control" id="complemento" ng-model="ctrl.endereco.complemento" style="color: #000;">
 					</div>					
+						
+					</div>
+					
+					<div class="row">
+					
+						<div class="form-group col s4">
+							<label for="cidade">Cidade</label> 
+							<input type="text"	class="form-control" id="cidade" ng-model="ctrl.endereco.cidade.nome" style="color: #000;">
+						</div>
+						
+						<div class="form-group col s2">
+							<label for="estado">Estado</label> 
+							<input type="text"	class="form-control" id="estado" ng-model="ctrl.endereco.estado.sigla" style="color: #000;">
+						</div>
 						
 					</div>
 
@@ -44,4 +49,38 @@
         
       </div>
     </div>		
+    
+        <!-- Grid de Endereco -->
+	<div class="tablecontainer">
+		<table class="striped">
+	        <thead>
+	          <tr>
+				<th>Id</th>
+				<th>Logradouro</th>
+				<th>Complemento</th>
+				<th>Cidade</th>
+				<th>Estado</th>
+				<th width="20%"></th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	          <tr ng-repeat="e in ctrl.enderecos">
+					<td><span style="color : #000;">{{ e.id }}</span></td>
+					<td><span style="color : #000;">{{ e.logradouro }}</span></td>
+                    <td><span style="color : #000;">{{ e.complemento }}</span></td>
+                    <td><span style="color : #000;">{{ e.cidade.nome }}</span></td>
+                    <td><span style="color : #000;">{{ e.estado.sigla }}</span></td>
+                    <td>
+                      <button type="button" ng-click="ctrl.edit(e.id)" class="waves-effect waves-light btn blue darken-3">
+                  			<i class="material-icons">mode_edit</i>
+                      </button>  
+                      <button type="button" ng-click="ctrl.remove(e.id)" class="waves-effect waves-light btn red darken-2">
+                     		<b>x</b>
+                      </button>
+                    </td>
+				</tr>
+	        </tbody>
+	      </table>
+	</div>
+    
 </div>
