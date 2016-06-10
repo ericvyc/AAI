@@ -1,12 +1,12 @@
 <div ng-controller="EstadoController as ctrl">
 
 	<div class="row">
-      <div class="col s12 m12" style="margin-top: 30px;">
-        
+      <div class="col s12 m12" style="margin-top: 30px;">        
         <div class="card">
         	<div class="card-content white-text">
         		<span class="card-title" style="color: #000;">Cadastro de Estado</span>
           		
+          		<!-- Formulário de Cadastro de Pessoas --> 
           		<form method="post" ng-submit="ctrl.submit()" name="meuForm" class="form-horizontal">				
 					<input type="hidden" ng-model="ctrl.estado.id" />						
 					<div class="row">
@@ -19,10 +19,8 @@
 						<div class="form-group  col s2">
 							<label for="sigla">Sigla:</label> 
 							<input type="text" class="form-control" id="sigla" ng-model="ctrl.estado.sigla" ng-required="required" style="color: #000;">
-						</div>
-					
+						</div>					
 					</div>
-
 					<div id="actions" class="row">
 						<div class="col-md-12">
 							<input type="submit"  value="{{!ctrl.estado.id ? 'Adicionar' : 'Atualizar'}}" class="waves-effect waves-light btn" ng-disabled="meuForm.$invalid">
@@ -37,6 +35,7 @@
       </div>
     </div>
     
+    <!-- Grid de Estados -->
 	<div class="tablecontainer">
 		<table class="striped">
 	        <thead>
@@ -57,7 +56,7 @@
                   			<i class="material-icons">mode_edit</i>
                       </button>  
                       <button type="button" ng-click="ctrl.remove(e.id)" class="waves-effect waves-light btn red darken-2">
-                     		x
+                     		<b>x</b>
                       </button>
                     </td>
 				</tr>

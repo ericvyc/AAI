@@ -1,5 +1,6 @@
 'use strict';
- 
+
+/* Rotas */  
 var App = angular.module('meuApp',['ui.router']);
 
 App.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider) {

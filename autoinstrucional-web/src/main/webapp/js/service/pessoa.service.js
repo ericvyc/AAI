@@ -1,6 +1,6 @@
 'use strict';
  
-/* Serviços relacionado a entidade Pessoa */
+/* Serviços relacionados a entidade Pessoa */
 App.factory('PessoaService', ['$http', '$q', function($http, $q){
  
     return {

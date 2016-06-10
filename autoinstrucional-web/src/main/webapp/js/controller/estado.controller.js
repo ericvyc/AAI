@@ -1,10 +1,12 @@
 'use strict';
  
+ /* Controller da entidade estado */ 
 App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, EstadoService) {
     var self = this;
     self.estado={id:'',nome:'',sigla:''};
     self.estados=[];
          
+    /* Função que busca todos os estados cadatrados */ 
     self.findAll = function(){
   	  EstadoService.findAll()
             .then(
@@ -18,6 +20,7 @@ App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, 
              );
     };
     
+    /* Função que cria um novo estado */ 
     self.criarEstado = function(estado){
   	  estado.id=null;
         EstadoService.criarEstado(estado)
@@ -29,6 +32,7 @@ App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, 
             );
     };
     
+    /* Função que atualiza os dados de um estado */ 
     self.updateEstado = function(estado){
         EstadoService.updateEstado(estado)
                 .then(
@@ -39,6 +43,7 @@ App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, 
             );
     };
     
+    /* Função que exclui um estado */ 
     self.deleteEstado = function(id){
         EstadoService.deleteEstado(id)
                 .then(
@@ -49,6 +54,7 @@ App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, 
             );
     };
     
+    /* Função que exclui todos os estados cadatrados */ 
 	  self.deletarTodos = function() {
 			EstadoService.deletarTodos().then(self.findAll,
 					function(errResponse) {
@@ -56,6 +62,7 @@ App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, 
 					});
 		};
     
+    /* Função de envio dos dados do formulário */ 
     self.submit = function() {
         if(self.estado.id === null  || self.estado.id === undefined || self.estado.id === ''){
             console.log('Salvando novo estado', self.estado);    
@@ -69,6 +76,7 @@ App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, 
 
     };
     
+    /* Função para edição de um estado */ 
     self.edit = function(id){
         console.log('id para ser editado', id);
         for(var i = 0; i < self.estados.length; i++){
@@ -79,6 +87,7 @@ App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, 
         }
     };
     
+    /* Função que chama a função de excluir um estado */ 
     self.remove = function(id){
         console.log('id para ser deletado', id);
         if(self.estado.id === id) {
@@ -87,6 +96,7 @@ App.controller('EstadoController', ['$scope', 'EstadoService', function($scope, 
         self.deleteEstado(id);
     };
     
+    /* Função que limpa os dados do formulário */ 
     self.reset = function(){
         self.estado={id:'',nome:'',sigla:''};
         $scope.meuForm.$setPristine();

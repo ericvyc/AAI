@@ -1,8 +1,6 @@
 'use strict';
  
-/*
-  Controller da entidade pessoa
-*/ 
+/* Controller da entidade pessoa */ 
 App.controller('PessoaController', ['$scope', 'PessoaService', function($scope, PessoaService) {
 	  var self = this;
 	  self.pessoa={id:'',nome:'',idade:''};

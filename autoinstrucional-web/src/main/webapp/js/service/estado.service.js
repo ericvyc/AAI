@@ -1,8 +1,10 @@
 'use strict';
  
+ /* Serviços relacionados a entidade Estado */ 
 App.factory('EstadoService', ['$http', '$q', function($http, $q){
  
     return {
+        /* Busca todos estados */ 
         findAll: function() {
             return $http.get('http://localhost:8080/autoinstrucional/estado/findall')
                 .then(
@@ -16,8 +18,8 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
                 );
         },
 
-        criarEstado: function(estado){
-        	
+        /* Insere novo estado */ 
+        criarEstado: function(estado){        	
         		return $http.post('http://localhost:8080/autoinstrucional/estado/new', estado)
                 		.then(
                 				function(response){
@@ -30,8 +32,8 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
                 		);
         },
 
-        updateEstado: function(estado){
-        	
+        /* Atualiza um estado */ 
+        updateEstado: function(estado){        	
                 return $http.post('http://localhost:8080/autoinstrucional/estado/update', estado)
                         .then(
                                 function(response){
@@ -44,6 +46,7 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
                         );
         },
          
+         /* Exclui um estado */ 
         deleteEstado: function(id){
                 return $http.get('http://localhost:8080/autoinstrucional/estado/delete/'+id)
                         .then(
@@ -56,8 +59,9 @@ App.factory('EstadoService', ['$http', '$q', function($http, $q){
                                 }
                         );
         },
-        deletarTodos: function() {
-        	
+
+        /* Exclui todos os estados */ 
+        deletarTodos: function() {        	
         	return $http.get('http://localhost:8080/autoinstrucional/estado/deleteall')
         			.then(
         					function(response){
