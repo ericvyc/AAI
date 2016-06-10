@@ -14,7 +14,6 @@ import javax.persistence.Table;
 @Table(name="tb_estado")
 @NamedQuery(name="Estado.findAll", query="SELECT e FROM Estado e")
 public class Estado implements Serializable {
-
 	
 	private static final long serialVersionUID = -2638331931178243565L;
 

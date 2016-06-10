@@ -2,12 +2,27 @@ package br.com.fumec.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="tb_cidade")
+@NamedQuery(name="Cidade.findAll", query="SELECT e FROM Cidade e")
 public class Cidade implements Serializable {
 
 	private static final long serialVersionUID = -1255499823141568183L;
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id")
 	private int id;
 
+	@Column(name="nome")
 	private String nome;
 
 	private Estado estado;

@@ -6,8 +6,10 @@ App.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
     
     $urlRouterProvider.otherwise('/');
     
+    	console.log($stateProvider);
+    
     $stateProvider
-        
+            
         .state('estado', {
             url: '/estado',
             templateUrl: 'crudEstado.jsp'
@@ -16,6 +18,11 @@ App.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
         .state('endereco', {
         	url: '/endereco',
             templateUrl: 'crudEndereco.jsp'      
-        });
+        })
         
+        .state('pessoa', {
+            url: '/pessoa',
+            templateUrl: 'crudPessoa.jsp'      
+        });
+    
 }]);

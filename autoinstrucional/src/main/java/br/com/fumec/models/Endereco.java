@@ -2,18 +2,36 @@ package br.com.fumec.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="tb_endereco")
+@NamedQuery(name="Endereco.findAll", query="SELECT e FROM Endereco e")
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = 247815236006501283L;
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id")
 	private int id;
 
+	@Column(name="logradouro")
 	private String logradouro;
 
+	@Column(name="complemento")
 	private String complemento;
 
+	
 	private Cidade cidade;
 
+	
 	private Estado estado;
 
 	public int getId() {

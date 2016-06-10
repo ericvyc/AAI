@@ -5,7 +5,7 @@
         
         <div class="card">
         	<div class="card-content white-text">
-        		<span class="card-title" style="color: #000;">Cadastro de Endereço</span>
+        		<span class="card-title" style="color: #000;">Cadastro de Pessoa</span>
           		
           		<form method="post" ng-submit="ctrl.submit()" name="meuForm" class="form-horizontal">				
 					<input type="hidden" ng-model="ctrl.pessoa.id" />						
