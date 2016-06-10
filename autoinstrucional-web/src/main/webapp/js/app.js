@@ -18,6 +18,11 @@ App.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
             templateUrl: 'crudEndereco.jsp'      
         })
         
+        .state('cidade', {
+        	url: '/cidade',
+            templateUrl: 'crudCidade.jsp'      
+        })
+        
         .state('pessoa', {
             url: '/pessoa',
             templateUrl: 'crudPessoa.jsp'      

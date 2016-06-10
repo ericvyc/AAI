@@ -43,6 +43,8 @@
 		<script src="js/controller/endereco.controller.js"></script>
 		<script src="js/service/pessoa.service.js"></script>
 		<script src="js/controller/pessoa.controller.js"></script>
+		<script src="js/service/cidade.service.js"></script>
+		<script src="js/controller/cidade.controller.js"></script>
 	</head>
 	<body ng-app="meuApp" class="ng-cloak">	
 
@@ -54,6 +56,7 @@
 		          	<li><a ui-sref="pessoa">Pessoa </a></li>
 		        	<li><a ui-sref="endereco">Endereço</a></li>
 		        	<li><a ui-sref="estado">Estado</a></li>
+		        	<li><a ui-sref="cidade">Cidade</a></li>
 		        </ul>
 		      </div>
 		    </nav>

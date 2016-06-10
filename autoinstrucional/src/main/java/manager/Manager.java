@@ -11,6 +11,7 @@ public class Manager {
 	private static EntityManager em;
 	
 	public static EntityManager getEntityManager() {
+		
 		if(emf == null){
 			emf= Persistence.createEntityManagerFactory("autoinstrucional");
 		}

@@ -24,7 +24,7 @@ public class CidadeDAO extends BaseDAO implements ICidadeDAO {
 	@Override
 	public List<Cidade> findAll() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(" SELECT * FROM dawfumec.tb_cidade");
+		sb.append(" SELECT * FROM dawfumec.tb_cidade order by id desc limit 10");
 		
 		Query query = Manager.getEntityManager().createNativeQuery(sb.toString(), Cidade.class);
 		
