@@ -71,6 +71,8 @@
 	</dependencies>
 	<build>
 	
+	<finalName>autoinstrucional</finalName>
+	
 	<plugins>
 
 		<plugin>
