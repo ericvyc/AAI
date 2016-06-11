@@ -23,15 +23,21 @@
 					</div>
 					
 					<div class="row">
-					
-						<div class="form-group col s4">
-							<label for="cidade">Cidade</label> 
-							<input type="text"	class="form-control" id="cidade" ng-model="ctrl.endereco.cidade.nome" style="color: #000;">
+						
+						<div class="form-group  col s2">
+							<label for="cidade">Cidade:</label> 
+							<select id="cidade" class="browser-default" ng-model="ctrl.cidade" style="color: #000;">
+							    <option value="" disabled selected style="color: #000;">Selecione...</option>
+							    <option ng-repeat="e in ctrl.cidades" value="{{e}}">{{e.nome}}</option>
+							  </select>
 						</div>
 						
-						<div class="form-group col s2">
-							<label for="estado">Estado</label> 
-							<input type="text"	class="form-control" id="estado" ng-model="ctrl.endereco.estado.sigla" style="color: #000;">
+						<div class="form-group  col s2">
+							<label for="sigla">Estado:</label> 
+							<select id="estado" class="browser-default" ng-model="ctrl.estado" style="color: #000;">
+							    <option value="" disabled selected style="color: #000;">Selecione...</option>
+							    <option ng-repeat="e in ctrl.estados" value="{{e}}">{{e.nome}}</option>
+							  </select>
 						</div>
 						
 					</div>

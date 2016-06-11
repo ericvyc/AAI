@@ -1,10 +1,40 @@
 'use strict';
  
-App.controller('EnderecoController', ['$scope', 'EnderecoService', function($scope, enderecoService) {
+App.controller('EnderecoController', ['$scope', 'EnderecoService','EstadoService', 'CidadeService', function($scope, enderecoService, estadoService, cidadeService) {
 	 	var self = this;
 	 	self.endereco={id:null,logradouro:'',complemento:'',cidade:null,estado:null};
 	    self.enderecos=[];
+	    self.cidade={id:null,nome:'',estado:''};
+	    self.cidades=[];
+	    self.estado = {id:null,nome:'',sigla:''};
+	    self.estados = [];
 	         
+	    
+	    self.findAllCidades = function() {
+	    	cidadeService.findAll()
+	    	.then(
+	    			function(d) {
+
+	    				self.cidades = d;
+	    			},
+	    			function(errResponse){
+	    				console.error('Erro ao buscar cidades');
+	    			}
+	    	);
+	    };
+		
+		self.findAllEstados = function() {
+			estadoService.findAll()
+			.then(
+					function(d) {
+
+						self.estados = d;
+					},
+					function(errResponse){
+						console.error('Erro ao buscar estados');
+					}
+			);
+		};
 	    
 	    self.findAll = function(){
 	    	enderecoService.findAll()
@@ -65,8 +95,14 @@ App.controller('EnderecoController', ['$scope', 'EnderecoService', function($sco
 	    self.submit = function() {
 	        if(self.endereco.id === null  || self.endereco.id === undefined || self.endereco.id === ''){
 	            console.log('Salvando novo endereco', self.endereco);    
+	            debugger;
+	            self.endereco.cidade = JSON.parse(self.cidade);
+	        	self.endereco.estado = JSON.parse(self.estado);
 	            self.criarendereco(self.endereco);
 	        }else{
+	        	debugger;
+	        	self.endereco.cidade = JSON.parse(self.cidade);
+	        	self.endereco.estado = JSON.parse(self.estado);
 	            self.updateendereco(self.endereco);
 	            console.log('endereco atualizada com o id ', self.endereco.id);
 	        }
@@ -102,4 +138,6 @@ App.controller('EnderecoController', ['$scope', 'EnderecoService', function($sco
 	    };
 	      
 	    self.findAll();
+	    self.findAllCidades();
+	    self.findAllEstados();
 }]);

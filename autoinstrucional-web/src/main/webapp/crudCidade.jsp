@@ -10,12 +10,12 @@
 					<input type="hidden" ng-model="ctrl.cidade.id" />						
 					<div class="row">
 					
-						<div class="form-group  col s8">
+						<div class="form-group  col s10">
 							<label for="nome">Nome:</label> 
 							<input type="text" class="form-control" id="nome" ng-model="ctrl.cidade.nome" ng-required="required" style="color: #000;">
 						</div>
 						
-						<div class="form-group  col s4">
+						<div class="form-group  col s2">
 							<label for="sigla">Estado:</label> 
 							<select id="estado" class="browser-default" ng-model="ctrl.estado" style="color: #000;">
 							    <option value="" disabled selected style="color: #000;">Selecione...</option>
