@@ -1,7 +1,8 @@
 <div ng-controller="CidadeController as ctrl">
 
 	<div class="row">
-      <div class="col s12 m12" style="margin-top: 30px;">
+      <div class="col s12 m12" style="margin-top: 30px;">     
+      
         <div class="card">
         	<div class="card-content white-text">
         		<span class="card-title" style="color: #000;">Cadastro de cidade</span>
@@ -19,7 +20,8 @@
 							<label for="sigla">Estado:</label> 
 							<select id="estado" class="browser-default" ng-model="ctrl.estado" style="color: #000;">
 							    <option value="" disabled selected style="color: #000;">Selecione...</option>
-							    <option ng-repeat="e in ctrl.estados" value="{{e}}">{{e.nome}}</option>
+							    <option ng-selected="{{e.id == ctrl.cidade.estado.id}}" 
+							    	ng-repeat="e in ctrl.estados" value="{{e}}">{{e.nome}}</option>
 							  </select>
 						</div>
 					
@@ -29,7 +31,7 @@
 						<div class="col-md-12">
 							<input type="submit"  value="{{!ctrl.cidade.id ? 'Adicionar' : 'Atualizar'}}" class="waves-effect waves-light btn" ng-disabled="meuForm.$invalid">
 			                <button type="button" ng-click="ctrl.reset()" class="waves-effect waves-light btn yellow darken-3" ng-disabled="myForm.$pristine">Limpar Formulário</button>
-			                <button type="button" ng-click="ctrl.deletarTodos()" class="waves-effect waves-light btn red darken-2">Deletar todos os cidades</button>
+			                <button type="button" ng-click="ctrl.deletarTodos()" class="waves-effect waves-light btn red darken-2">Deletar todas as cidades</button>
 						</div>
 					</div>
 				</form>
