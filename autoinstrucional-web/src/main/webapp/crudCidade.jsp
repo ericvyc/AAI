@@ -2,7 +2,6 @@
 
 	<div class="row">
       <div class="col s12 m12" style="margin-top: 30px;">
-        
         <div class="card">
         	<div class="card-content white-text">
         		<span class="card-title" style="color: #000;">Cadastro de cidade</span>
@@ -18,10 +17,10 @@
 						
 						<div class="form-group  col s4">
 							<label for="sigla">Estado:</label> 
-							<!-- <input type="text" class="form-control" id="sigla" ng-model="ctrl.cidade.sigla" ng-required="required" style="color: #000;"> -->
-							<select class="form-control" ng-model="ctrl.estado">
-								<option ng-repeat="e in ctrl.estados">{{e.sigla}}</option>
-							</select>
+							<select id="estado" class="browser-default" ng-model="ctrl.estado.id" style="color: #000;">
+							    <option value="" disabled selected style="color: #000;">Selecione...</option>
+							    <option ng-repeat="e in ctrl.estados" value="e.id">{{e.nome}}</option>
+							  </select>
 						</div>
 					
 					</div>
