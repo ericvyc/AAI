@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.com.fumec.models.Pessoa;
 
+/* Interface de métodos de acesso a base de dados para Pessoa */
 public interface IPessoaDAO extends Serializable {
 	
 	public List<Pessoa> findAll();
