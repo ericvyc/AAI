@@ -15,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 import br.com.fumec.dao.impl.PessoaDAO;
 import br.com.fumec.models.Pessoa;
 
+/* Recebe as requisições mapeadas para contexto/pessoa/... */
 @Path("pessoa")
 public class PessoaResource {
 	

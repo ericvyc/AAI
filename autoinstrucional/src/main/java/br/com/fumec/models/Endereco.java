@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+/* Entidade endereço e seus atributos */
 @Entity
 @Table(name="tb_endereco")
 @NamedQuery(name="Endereco.findAll", query="SELECT e FROM Endereco e")

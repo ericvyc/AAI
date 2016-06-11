@@ -8,6 +8,7 @@ import br.com.fumec.dao.ICidadeDAO;
 import br.com.fumec.models.Cidade;
 import manager.Manager;
 
+/* Implementação de métodos de acesso a base de dados para Cidade */
 public class CidadeDAO extends BaseDAO implements ICidadeDAO {
 
 	private static final long serialVersionUID = -5912032781118489648L;

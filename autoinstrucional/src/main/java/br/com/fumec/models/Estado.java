@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+/* Entidade estado e seus atributos */
 @Entity
 @Table(name="tb_estado")
 @NamedQuery(name="Estado.findAll", query="SELECT e FROM Estado e")

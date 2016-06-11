@@ -3,6 +3,7 @@ package br.com.fumec.models;
 import java.io.Serializable;
 import javax.persistence.*;
 
+/* Entidade pessoa e seus atributos */
 @Entity
 @Table(name="tb_pessoa")
 @NamedQuery(name="Pessoa.findAll", query="SELECT p FROM Pessoa p")

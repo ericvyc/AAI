@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+/* Gerenciador de Entidades */
 public class Manager {
 	
 	private static EntityManagerFactory emf;

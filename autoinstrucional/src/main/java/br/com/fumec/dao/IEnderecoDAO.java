@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.com.fumec.models.Endereco;
 
+/* Interface de métodos de acesso a base de dados para Endereço */
 public interface IEnderecoDAO extends Serializable {
 	
 	public Endereco createEndereco(Endereco endereco);

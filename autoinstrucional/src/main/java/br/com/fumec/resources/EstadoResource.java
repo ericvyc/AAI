@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import br.com.fumec.dao.impl.EstadoDAO;
 import br.com.fumec.models.Estado;
 
+/* Recebe as requisições mapeadas para contexto/estado/... */
 @Path("estado")
 public class EstadoResource {
 	

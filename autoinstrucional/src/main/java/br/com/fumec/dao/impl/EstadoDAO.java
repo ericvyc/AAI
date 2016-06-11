@@ -8,6 +8,7 @@ import br.com.fumec.dao.IEstadoDAO;
 import br.com.fumec.models.Estado;
 import manager.Manager;
 
+/* Implementação de métodos de acesso a base de dados para Estado */
 public class EstadoDAO extends BaseDAO implements IEstadoDAO {
 
 	private static final long serialVersionUID = 3459713197334261189L;

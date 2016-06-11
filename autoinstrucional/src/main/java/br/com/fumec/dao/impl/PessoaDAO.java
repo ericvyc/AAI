@@ -8,6 +8,7 @@ import br.com.fumec.dao.IPessoaDAO;
 import br.com.fumec.models.Pessoa;
 import manager.Manager;
 
+/* Implementação de métodos de acesso a base de dados para Pessoa */
 public class PessoaDAO extends BaseDAO implements IPessoaDAO {
 
 	private static final long serialVersionUID = 3459713197334261189L;

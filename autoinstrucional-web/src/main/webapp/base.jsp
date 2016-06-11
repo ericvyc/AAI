@@ -84,9 +84,9 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Grupo</h5>
                 <ul>
-                  <li><span class="grey-text text-lighten-3" href="#!">Eric Vilar Yankous Castanheira</span></li>
-                  <li><span class="grey-text text-lighten-3" href="#!">Gabriel Barbosa Rocha</span></li>
-                  <li><span class="grey-text text-lighten-3" href="#!">Matheus Neiva Amaro</span></li>
+                  <li><span class="grey-text text-lighten-3" >Eric Vilar Yankous Castanheira</span></li>
+                  <li><span class="grey-text text-lighten-3" >Gabriel Barbosa Rocha</span></li>
+                  <li><span class="grey-text text-lighten-3" >Matheus Neiva Amaro</span></li>
                 </ul>
               </div>
             </div>

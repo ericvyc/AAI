@@ -8,6 +8,7 @@ import br.com.fumec.dao.IEnderecoDAO;
 import br.com.fumec.models.Endereco;
 import manager.Manager;
 
+/* Implementação de métodos de acesso a base de dados para Endereço */
 public class EnderecoDAO extends BaseDAO implements IEnderecoDAO {
 
 	private static final long serialVersionUID = 7767775811795961460L;

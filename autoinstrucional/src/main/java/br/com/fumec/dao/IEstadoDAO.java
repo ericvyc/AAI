@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.com.fumec.models.Estado;
 
+/* Interface de métodos de acesso a base de dados para Estado */
 public interface IEstadoDAO extends Serializable {
 
 	public Estado createEstado(Estado estado);

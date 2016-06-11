@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import br.com.fumec.dao.impl.CidadeDAO;
 import br.com.fumec.models.Cidade;
 
+/* Recebe as requisições mapeadas para contexto/cidade/... */
 @Path("cidade")
 public class CidadeResource {
 	

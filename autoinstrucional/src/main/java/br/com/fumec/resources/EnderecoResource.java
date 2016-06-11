@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import br.com.fumec.dao.impl.EnderecoDAO;
 import br.com.fumec.models.Endereco;
 
+/* Recebe as requisições mapeadas para contexto/endereco/... */
 @Path("endereco")
 public class EnderecoResource {
 	
