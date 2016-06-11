@@ -35,6 +35,7 @@ App.controller('CidadeController', ['$scope', 'CidadeService','EstadoService', f
     
     self.criarcidade = function(cidade){
   	  cidade.id=null;
+  	  cidade.estado = JSON.parse(self.estado);
         cidadeService.criarcidade(cidade)
                 .then(
                 self.findAll, 
@@ -45,6 +46,7 @@ App.controller('CidadeController', ['$scope', 'CidadeService','EstadoService', f
     };
     
     self.updatecidade = function(cidade){
+    	cidade.estado = JSON.parse(self.estado);
         cidadeService.updatecidade(cidade)
                 .then(
                         self.findAll, 

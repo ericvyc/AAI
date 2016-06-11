@@ -17,9 +17,9 @@
 						
 						<div class="form-group  col s4">
 							<label for="sigla">Estado:</label> 
-							<select id="estado" class="browser-default" ng-model="ctrl.estado.id" style="color: #000;">
+							<select id="estado" class="browser-default" ng-model="ctrl.estado" style="color: #000;">
 							    <option value="" disabled selected style="color: #000;">Selecione...</option>
-							    <option ng-repeat="e in ctrl.estados" value="e.id">{{e.nome}}</option>
+							    <option ng-repeat="e in ctrl.estados" value="{{e}}">{{e.nome}}</option>
 							  </select>
 						</div>
 					
